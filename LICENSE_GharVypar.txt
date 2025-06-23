@@ -1,0 +1,10 @@
+
+Copyright (c) 2025 Lalit Kumar Bodana
+
+All rights reserved. Unauthorized copying, use, or distribution of this code, via any medium, is strictly prohibited.
+
+This software is proprietary and confidential. No license is granted to third parties unless explicitly agreed upon in writing.
+
+This project, GharVypar, including all code, documentation, designs, and assets, is the intellectual property of Lalit Kumar Bodana.
+
+Use of this software or any of its components in any capacity outside of explicitly granted access is strictly prohibited.
