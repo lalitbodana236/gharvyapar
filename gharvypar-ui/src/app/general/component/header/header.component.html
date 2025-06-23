@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">GharVypar</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties">My Properties</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/units">Units</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tenants">Tenants</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/payments">Payments</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inspections">AI Inspection</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" routerLink="/notifications">
+            <i class="bi bi-bell"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              3
+              <span class="visually-hidden">unread alerts</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right-aligned profile dropdown -->
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="profileDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i> Profile
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="profileDropdown"
+          >
+            <li>
+              <a class="dropdown-item" routerLink="/profile">My Profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/settings">Settings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/switch-role">Switch Role</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item text-danger">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-1">
+  <div class="container-fluid">
+    <!-- Brand Logo -->
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">GharVypar</a>
+
+    <!-- Mobile Toggle Button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Menu -->
+    <!-- Replace the entire collapsible content -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul
+        class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex flex-column flex-lg-row align-items-lg-center w-100 justify-content-lg-end"
+      >
+        <li class="nav-item">
+          <a class="nav-link" (click)="selectModule('dashboard')"
+            >🏠 Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="selectModule('properties')"
+            >🏘 My Properties</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="selectModule('tenants')">👥 Tenants</a>
+        </li>
+
+        <!-- Notification with badge -->
+        <li class="nav-item position-relative">
+          <a
+            class="nav-link p-0 d-flex align-items-center"
+            href="javascript:void(0)"
+            (click)="toggleNotifications()"
+          >
+            <i class="bi bi-bell fs-5 text-dark"></i>
+            <span
+              *ngIf="notificationCount > 0"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              style="font-size: 0.65rem; padding: 0.25em 0.4em"
+            >
+              {{ notificationCount }}
+            </span>
+          </a>
+          <app-notification
+            *ngIf="showNotifications"
+            class="position-absolute end-0 mt-2"
+            style="z-index: 1050"
+          >
+          </app-notification>
+        </li>
+
+        <!-- Profile dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="profileDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i> Profile
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="profileDropdown"
+          >
+            <li>
+              <a class="dropdown-item" routerLink="/profile">👤 My Profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/settings">⚙️ Settings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/switch-role"
+                >🔁 Switch Role</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item text-danger" (click)="logout()"
+                >🚪 Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

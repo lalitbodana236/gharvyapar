@@ -1,0 +1,21 @@
+<!-- Navbar -->
+<app-navbar (moduleSelected)="onModuleSelected($event)"></app-navbar>
+
+<!-- Main Layout Container -->
+<div class="container-fluid p-0 vh-100 d-flex flex-column">
+  <!-- Row that fills remaining height -->
+  <div class="row flex-grow-1 g-0 overflow-hidden">
+    <!-- Sidebar (Left Panel) -->
+    <div class="col-12 col-md-3 col-lg-2 bg-white border-end p-2 overflow-auto">
+      <app-left-section
+        [module]="selectedModule"
+        (optionSelected)="onSidebarOptionSelected($event)"
+      ></app-left-section>
+    </div>
+
+    <!-- Main Content (Right Panel) -->
+    <div class="col-12 col-md-9 col-lg-10 p-3 bg-light overflow-auto">
+      <app-center-section [option]="selectedOption"></app-center-section>
+    </div>
+  </div>
+</div>
