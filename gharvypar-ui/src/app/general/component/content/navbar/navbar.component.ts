@@ -10,6 +10,11 @@ import { NotificationComponent } from '../../notification/notification.component
 })
 export class NavbarComponent {
   @Output() moduleSelected = new EventEmitter<string>();
+  @Output() toggleSidebar = new EventEmitter<void>();
+
+  toggle() {
+    this.toggleSidebar.emit();
+  }
 
   showNotifications = false;
 

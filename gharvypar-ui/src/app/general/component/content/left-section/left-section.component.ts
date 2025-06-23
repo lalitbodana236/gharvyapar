@@ -16,6 +16,7 @@ import {
 export class LeftSectionComponent {
   @Input() module: string = '';
   @Output() optionSelected = new EventEmitter<string>();
+  @Input() collapsed: boolean = false;
 
   options: string[] = [];
 
@@ -47,5 +48,22 @@ export class LeftSectionComponent {
 
   selectOption(option: string): void {
     this.optionSelected.emit(option);
+  }
+  getIcon(option: string): string {
+    const icons: { [key: string]: string } = {
+      'Add Property': 'bi bi-plus-circle',
+      'View Properties': 'bi bi-card-list',
+      'Rent Management': 'bi bi-cash-coin',
+      'Ownership Docs': 'bi bi-file-earmark-text',
+      'View Tenants': 'bi bi-people',
+      'Add Tenant': 'bi bi-person-plus',
+      'View Payments': 'bi bi-credit-card',
+      'Upload Documents': 'bi bi-upload',
+      'AI Inspection': 'bi bi-camera-video',
+      Maintenance: 'bi bi-tools',
+      'Lease Agreement': 'bi bi-file-earmark-check',
+    };
+
+    return icons[option] || 'bi bi-chevron-right';
   }
 }

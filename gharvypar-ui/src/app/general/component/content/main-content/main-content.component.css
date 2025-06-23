@@ -22,4 +22,27 @@
     padding: 1rem;
     background-color: #f8f9fa;
   }
+  .sidebar {
+    transition: all 0.3s ease;
+    z-index: 1030;
+    background-color: #ffffff;
+  }
+
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .sidebar-expanded {
+    width: 220px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar-collapsed {
+    width: 60px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
   

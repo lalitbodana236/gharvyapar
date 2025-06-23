@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CenterSectionComponent } from '../center-section/center-section.component';
 import { LeftSectionComponent } from '../left-section/left-section.component';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -16,12 +16,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './main-content.component.css',
 })
 export class MainContentComponent {
-  selectedModule: string = 'dashboard'; // from header
-  selectedOption: string = ''; // from sidebar
+  isSidebarCollapsed = false;
+  selectedModule: string = 'dashboard';
+  selectedOption: string = '';
+
+  toggleSidebar() {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+  }
 
   onModuleSelected(module: string) {
     this.selectedModule = module;
-    this.selectedOption = ''; // Reset sidebar selection
   }
 
   onSidebarOptionSelected(option: string) {
