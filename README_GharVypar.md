@@ -7,7 +7,7 @@
 
 ## 🏗️ System Architecture (MVP)
 
-![Architecture Diagram](./ERD_Property_Management_System.png)
+![Architecture Diagram](./Centralised_Property_Management_System_Diagram.png)
 
 **Microservices:**
 - **API Gateway**: Routing and rate limiting
