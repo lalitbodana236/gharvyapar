@@ -1,0 +1,21 @@
+<nav class="mb-3" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li
+      class="breadcrumb-item"
+      *ngFor="let crumb of breadcrumbs; let i = index; let last = last"
+      [class.active]="last"
+      [attr.aria-current]="last ? 'page' : null"
+    >
+      <ng-container *ngIf="!last">
+        <a href="javascript:void(0)" (click)="goBack(i)">
+          {{ crumb | titlecase }}
+        </a>
+      </ng-container>
+      <ng-container *ngIf="last">
+        <span
+          ><strong>{{ crumb | titlecase }}</strong></span
+        >
+      </ng-container>
+    </li>
+  </ol>
+</nav>

@@ -21,6 +21,12 @@
 
   <!-- Main Content -->
   <div class="flex-grow-1 p-3 overflow-auto">
-    <app-center-section [option]="selectedOption"></app-center-section>
+    <app-breadcrumb></app-breadcrumb>
+    <app-center-section
+      [option]="selectedOption"
+      [module]="selectedModule"
+      (moduleChanged)="onModuleSelected($event)"
+      (optionChanged)="onSidebarOptionSelected($event)"
+    ></app-center-section>
   </div>
 </div>

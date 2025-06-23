@@ -6,6 +6,8 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { LEFT_SECTION_OPTIONS } from '../../../config/left-section.config';
+import { BreadcrumbService } from '../../../service/breadcrumb.service';
 
 @Component({
   selector: 'app-left-section',
@@ -17,53 +19,53 @@ export class LeftSectionComponent {
   @Input() module: string = '';
   @Output() optionSelected = new EventEmitter<string>();
   @Input() collapsed: boolean = false;
+  @Output() moduleChanged = new EventEmitter<string>();
 
-  options: string[] = [];
+  constructor(private breadcrumbService: BreadcrumbService) {}
+
+  // options: string[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['module']) {
       const newModule = changes['module'].currentValue;
-      this.options = this.getOptions(newModule);
+      // this.options = this.getOptions(newModule);
       console.log('Updated options:', this.options);
     }
   }
 
-  getOptions(module: string): string[] {
-    switch ((module || '').toLowerCase()) {
-      case 'properties':
-        return [
-          'Add Property',
-          'View Properties',
-          'Rent Management',
-          'Ownership Docs',
-        ];
-      case 'tenants':
-        return ['Add Tenant', 'Tenant List', 'KYC Review'];
-      case 'dashboard':
-        return ['Overview'];
-      default:
-        return [];
+  get options() {
+    return LEFT_SECTION_OPTIONS[this.module?.toLowerCase()] || [];
+  }
+
+  expandedOptions: Set<string> = new Set();
+
+  expanded: Set<string> = new Set();
+  toggleOption(option: any) {
+    if (this.expanded.has(option.label)) {
+      this.expanded.delete(option.label);
+    } else {
+      this.expanded.add(option.label);
     }
   }
 
-  selectOption(option: string): void {
-    this.optionSelected.emit(option);
+  isExpanded(option: any): boolean {
+    return this.expanded.has(option.label);
   }
-  getIcon(option: string): string {
-    const icons: { [key: string]: string } = {
-      'Add Property': 'bi bi-plus-circle',
-      'View Properties': 'bi bi-card-list',
-      'Rent Management': 'bi bi-cash-coin',
-      'Ownership Docs': 'bi bi-file-earmark-text',
-      'View Tenants': 'bi bi-people',
-      'Add Tenant': 'bi bi-person-plus',
-      'View Payments': 'bi bi-credit-card',
-      'Upload Documents': 'bi bi-upload',
-      'AI Inspection': 'bi bi-camera-video',
-      Maintenance: 'bi bi-tools',
-      'Lease Agreement': 'bi bi-file-earmark-check',
-    };
 
-    return icons[option] || 'bi bi-chevron-right';
+  handleOptionClick(option: any, event: Event) {
+    if (option.children) {
+      this.toggleOption(option);
+    } else {
+      this.selectOption(option.label, event);
+    }
+    event.stopPropagation();
+  }
+
+  selectOption(label: string, event?: Event) {
+    this.optionSelected.emit(label);
+    this.moduleChanged.emit(this.module);
+    if (event) {
+      event.stopPropagation();
+    }
   }
 }

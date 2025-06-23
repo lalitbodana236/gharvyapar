@@ -3,6 +3,7 @@ import { CenterSectionComponent } from '../center-section/center-section.compone
 import { LeftSectionComponent } from '../left-section/left-section.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { BreadcrumbComponent } from "../../breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-main-content',
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
     LeftSectionComponent,
     NavbarComponent,
     CommonModule,
-  ],
+    BreadcrumbComponent
+],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css',
 })
@@ -24,11 +26,18 @@ export class MainContentComponent {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
 
-  onModuleSelected(module: string) {
+  onModuleChanged(module: any) {
     this.selectedModule = module;
   }
 
-  onSidebarOptionSelected(option: string) {
+  onModuleSelected(module: any) {
+    console.log('Module Changed:', module);
+    this.selectedModule = module;
+    this.selectedOption = ''; // reset to force re-render if needed
+  }
+
+  onSidebarOptionSelected(option: any) {
+    console.log('Option Selected:', option);
     this.selectedOption = option;
   }
 }

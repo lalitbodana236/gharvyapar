@@ -8,10 +8,11 @@ import { NavbarComponent } from './general/component/content/navbar/navbar.compo
 import { LeftSectionComponent } from './general/component/content/left-section/left-section.component';
 import { CenterSectionComponent } from './general/component/content/center-section/center-section.component';
 import { MainContentComponent } from './general/component/content/main-content/main-content.component';
+import { BreadcrumbComponent } from "./general/component/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, MainContentComponent],
+  imports: [ReactiveFormsModule, MainContentComponent, BreadcrumbComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

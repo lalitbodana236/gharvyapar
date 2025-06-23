@@ -1,22 +1,56 @@
-<p
-  class="text-muted fw-semibold px-3 pt-3 small text-uppercase"
-  *ngIf="!collapsed"
->
-  {{ module }}
-</p>
-
 <ul class="nav flex-column px-2">
-  <li
-    class="nav-item"
-    *ngFor="let option of options"
-    [title]="collapsed ? option : ''"
-  >
-    <a
-      class="nav-link py-2 d-flex align-items-center text-dark rounded"
-      (click)="selectOption(option)"
-    >
-      <i [ngClass]="getIcon(option)" class="me-2"></i>
-      <span *ngIf="!collapsed">{{ option }}</span>
-    </a>
-  </li>
+  <ng-container *ngFor="let option of options">
+    <li class="nav-item">
+      <!-- LEVEL 0 (PARENT) -->
+      <div
+        class="nav-link d-flex justify-content-between align-items-center text-dark"
+        (click)="handleOptionClick(option, $event)"
+        style="cursor: pointer"
+      >
+        <div>
+          <i class="bi me-2" [ngClass]="option.icon"></i>
+          <span *ngIf="!collapsed">{{ option.label }}</span>
+        </div>
+        <i
+          *ngIf="option.children && !collapsed"
+          class="bi"
+          [ngClass]="{
+            'bi-chevron-down': isExpanded(option),
+            'bi-chevron-right': !isExpanded(option)
+          }"
+        ></i>
+      </div>
+
+      <!-- LEVEL 1 -->
+      <ul
+        class="nav flex-column ms-4"
+        *ngIf="option.children && isExpanded(option) && !collapsed"
+      >
+        <li class="nav-item" *ngFor="let child of option.children">
+          <div
+            class="nav-link d-flex align-items-center text-dark"
+            (click)="handleOptionClick(child, $event)"
+            style="cursor: pointer"
+          >
+            <i class="bi me-2" [ngClass]="child.icon"></i>
+            {{ child.label }}
+          </div>
+
+          <!-- LEVEL 2 -->
+          <ul class="nav flex-column ms-4" *ngIf="child.children">
+            <li
+              class="nav-item"
+              *ngFor="let sub of child.children"
+              (click)="selectOption(sub.label, $event)"
+            >
+              <div class="nav-link text-dark" style="cursor: pointer">
+                <i class="bi me-2" [ngClass]="sub.icon"></i>
+                {{ sub.label }}
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ng-container>
 </ul>

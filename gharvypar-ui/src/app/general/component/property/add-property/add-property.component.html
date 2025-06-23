@@ -1,2 +1,123 @@
-<h4>➕ Add Property</h4>
-<p>Form goes here</p>
+<h4 class="mb-3 text-primary">
+  <i class="bi bi-house-add-fill me-2"></i> Add Property
+</h4>
+
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white fw-semibold">
+    ➕ Register New Property
+  </div>
+  <div class="card-body">
+    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" novalidate>
+      <!-- Property Name -->
+      <div class="mb-3">
+        <label class="form-label">Property Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="propertyName"
+          placeholder="e.g., Sai Residency"
+          required
+        />
+      </div>
+
+      <!-- Address Line 1 -->
+      <div class="mb-3">
+        <label class="form-label">Address Line 1</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="address"
+          placeholder="e.g., 123 MG Road"
+          required
+        />
+      </div>
+
+      <!-- Address Line 2 (Optional) -->
+      <div class="mb-3">
+        <label class="form-label">Address Line 2 (optional)</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="addressLine2"
+          placeholder="e.g., Near ABC Park"
+        />
+      </div>
+
+      <div class="row">
+        <!-- City -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="city" />
+        </div>
+
+        <!-- State -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label">State</label>
+          <select class="form-select" formControlName="state" required>
+            <option value="">Select</option>
+            <option *ngFor="let s of states" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+
+        <!-- Zip Code / Pincode -->
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Pincode</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="pincode"
+            (blur)="onPincodeBlur()"
+            maxlength="6"
+            placeholder="e.g., 560001"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Property Type -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Property Type</label>
+          <select class="form-select" formControlName="type" required>
+            <option value="">Select</option>
+            <option *ngFor="let type of propertyTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Total Floors -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Total Floors</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="floor"
+            min="1"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Ownership Document Upload -->
+      <div class="mb-3">
+        <label class="form-label">Upload Ownership Proof</label>
+        <input
+          type="file"
+          class="form-control"
+          (change)="onFileChange($event)"
+          accept=".pdf,.jpg,.png"
+        />
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="btn btn-primary mt-2"
+        [disabled]="propertyForm.invalid"
+      >
+        <i class="bi bi-check-circle-fill me-1"></i> Submit Property
+      </button>
+    </form>
+  </div>
+</div>
