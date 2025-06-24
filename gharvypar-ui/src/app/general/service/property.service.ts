@@ -42,4 +42,12 @@ export class PropertyService {
       updated
     );
   }
+
+  private baseUrlUnit = 'http://localhost:8080/api/units';
+  // ✅ Add a new property
+  addUnit(unit: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrlUnit}`, unit);
+  }
+
+  // ✅ Get all properties for a specific user
 }

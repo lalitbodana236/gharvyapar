@@ -1,0 +1,13 @@
+package com.projectone.gharvypar;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class GharvyparApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

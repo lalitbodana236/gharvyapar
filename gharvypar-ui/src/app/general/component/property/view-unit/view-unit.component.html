@@ -1,0 +1,21 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+  <div class="col" *ngFor="let property of properties">
+    <div
+      class="card h-100 shadow-sm"
+      (click)="onCardClick(property)"
+      style="cursor: pointer"
+    >
+      <img
+        [src]="property.imageUrl || 'assets/default-property.jpg'"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ property.propertyName }}</h5>
+        <p class="card-text">{{ property.address }}</p>
+        <p class="text-muted small">
+          {{ property.city }}, {{ property.state }} - {{ property.pincode }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

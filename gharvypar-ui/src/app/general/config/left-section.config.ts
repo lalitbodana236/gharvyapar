@@ -3,6 +3,8 @@ import { ViewPropertiesComponent } from '../component/property/view-properties/v
 import { AddPropertyComponent } from '../component/property/add-property/add-property.component';
 import { ViewTenantsComponent } from '../component/tenants/view-tenants/view-tenants.component';
 import { DashboardComponent } from '../component/dashboard/dashboard.component';
+import { AddUnitComponent } from '../component/property/add-unit/add-unit.component';
+import { ViewUnitComponent } from '../component/property/view-unit/view-unit.component';
 
 export interface LeftSectionOption {
   icon: string;
@@ -34,12 +36,12 @@ export const LEFT_SECTION_OPTIONS: Record<string, LeftSectionOption[]> = {
             {
               icon: 'bi-eye',
               label: 'View Unit',
-              component: ViewPropertiesComponent,
+              component: ViewUnitComponent,
             },
             {
               icon: 'bi-plus-square',
               label: 'Add Unit',
-              component: AddPropertyComponent,
+              component: AddUnitComponent,
             },
           ],
         },
