@@ -1,0 +1,4 @@
+ng add angular-cli-ghpages --skip-confirmation
+ng build --base-href /gharvyapar/
+
+https://lalitbodana236.github.io/gharvyapar/

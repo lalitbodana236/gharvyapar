@@ -1,4 +1,4 @@
-package com.projectone.gharvypar;
+package com.projectone.gharvyapar;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

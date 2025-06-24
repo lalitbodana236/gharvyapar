@@ -1,4 +1,4 @@
-# GharvyparUi
+# gharvyaparUi
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
 
@@ -59,10 +59,10 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 
-##  🎨 GharVypar – UI/UX Design Plan
+##  🎨 gharvyapar – UI/UX Design Plan
 ##  🧭 1. Navigation Bar (Top Header)
 Element	Description
-Logo	GharVypar logo (top-left), clickable to home
+Logo	gharvyapar logo (top-left), clickable to home
 Dashboard	Redirect to role-specific dashboard (Owner or Tenant)
 My Properties	For Owners – list & manage their properties
 Units	For Owners – register/view/manage units
