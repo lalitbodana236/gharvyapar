@@ -11,7 +11,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
-import { DefaultCenterComponent } from '../../center/default-center/default-center.component';
+import { DefaultCenterComponent } from '../default-center/default-center.component';
 import { BreadcrumbService } from '../../../service/breadcrumb.service';
 import {
   LEFT_SECTION_OPTIONS,

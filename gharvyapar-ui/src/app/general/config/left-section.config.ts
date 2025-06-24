@@ -5,6 +5,7 @@ import { ViewTenantsComponent } from '../component/tenants/view-tenants/view-ten
 import { DashboardComponent } from '../component/dashboard/dashboard.component';
 import { AddUnitComponent } from '../component/property/add-unit/add-unit.component';
 import { ViewUnitComponent } from '../component/property/view-unit/view-unit.component';
+import { UnitRegistrationComponent } from '../component/property/unit-registration/unit-registration.component';
 
 export interface LeftSectionOption {
   icon: string;
@@ -60,7 +61,7 @@ export const LEFT_SECTION_OPTIONS: Record<string, LeftSectionOption[]> = {
     {
       icon: 'bi-people',
       label: 'View Tenants',
-      component: ViewTenantsComponent,
+      component: UnitRegistrationComponent,
     },
     {
       icon: 'bi-person-plus',

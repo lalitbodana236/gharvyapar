@@ -1,0 +1,90 @@
+<div class="unit-registration-container">
+  <h2>Unit Registration</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="unitNumber">Unit Number</label>
+      <input
+        type="text"
+        id="unitNumber"
+        [(ngModel)]="unit.unitNumber"
+        name="unitNumber"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="unitType">Unit Type</label>
+      <select
+        id="unitType"
+        [(ngModel)]="unit.unitType"
+        name="unitType"
+        required
+      >
+        <option value="" disabled>Select Type</option>
+        <option *ngFor="let type of unitTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select
+        id="category"
+        [(ngModel)]="unit.unitCategory"
+        name="unitCategory"
+        required
+      >
+        <option value="" disabled>Select Category</option>
+        <option *ngFor="let cat of unitCategories" [value]="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="area">Area (sqft)</label>
+      <input
+        type="number"
+        id="area"
+        [(ngModel)]="unit.areaSqft"
+        name="areaSqft"
+        required
+      />
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>Components:</label><br />
+      <label *ngFor="let comp of components">
+        <input
+          type="checkbox"
+          [value]="comp"
+          (change)="onComponentChange($event)"
+        />
+        {{ comp }}
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" [(ngModel)]="unit.status" name="status" required>
+        <option *ngFor="let status of unitStatuses" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="rent">Monthly Rent</label>
+      <input
+        type="number"
+        id="rent"
+        [(ngModel)]="unit.monthlyRent"
+        name="monthlyRent"
+        required
+      />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

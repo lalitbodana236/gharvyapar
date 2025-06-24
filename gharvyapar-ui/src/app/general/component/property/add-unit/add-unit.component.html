@@ -1,106 +1,138 @@
-
-<form [formGroup]="unitForm" (ngSubmit)="onSubmit()" class="p-4 shadow-sm bg-white rounded">
-    <div class="row">
-      <!-- Unit Number -->
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Unit Number</label>
-        <input type="text" class="form-control" formControlName="unitNumber" required />
-      </div>
-  
-      <!-- Area (Sqft) -->
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Area (Sqft)</label>
-        <input type="number" class="form-control" formControlName="areaSqft" required />
-      </div>
-  
-      <!-- Status -->
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Status</label>
-        <select class="form-select" formControlName="status">
-          <option value="VACANT">Vacant</option>
-          <option value="OCCUPIED">Occupied</option>
-          <option value="UNDER_MAINTENANCE">Under Maintenance</option>
-        </select>
-      </div>
-  
-      <!-- Unit Category -->
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Unit Category</label>
-        <select class="form-select" formControlName="unitCategory">
-          <option value="RESIDENTIAL">Residential</option>
-          <option value="COMMERCIAL">Commercial</option>
-          <option value="MIXED_USE">Mixed Use</option>
-        </select>
-      </div>
-  
-      <!-- Unit Type -->
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Unit Type</label>
-        <select class="form-select" formControlName="unitType">
-          <option value="FLAT">Flat</option>
-          <option value="PG">PG</option>
-          <option value="ROOM">Room</option>
-          <option value="SHOP">Shop</option>
-          <option value="STUDIO">Studio</option>
-          <option value="WAREHOUSE">Warehouse</option>
-        </select>
-      </div>
-  
-      <!-- Property ID (Hidden or Dropdown if needed) -->
-      <input type="hidden" formControlName="propertyId" />
+<form
+  [formGroup]="unitForm"
+  (ngSubmit)="onSubmit()"
+  class="p-4 shadow-sm bg-white rounded"
+>
+  <div class="row">
+    <!-- Unit Number -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Unit Number</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="unitNumber"
+        required
+      />
     </div>
-  
-    <!-- Unit Components Section -->
-    <div formArrayName="components" class="mt-4">
-      <h5>Components</h5>
-      <div
-        *ngFor="let component of components.controls; let i = index"
-        [formGroupName]="i"
-        class="border rounded p-3 mb-3"
-      >
-        <div class="row">
-          <div class="col-md-4 mb-2">
-            <label class="form-label">Component Type</label>
-            <select class="form-select" formControlName="componentType">
-              <option value="BEDROOM">Bedroom</option>
-              <option value="BATHROOM">Bathroom</option>
-              <option value="HALL">Hall</option>
-              <option value="KITCHEN">Kitchen</option>
-              <option value="BALCONY">Balcony</option>
-              <option value="TOILET">Toilet</option>
-              <option value="SHARED_TOILET">Shared Toilet</option>
-              <option value="SHOWROOM_AREA">Showroom Area</option>
-              <option value="STORAGE_AREA">Storage Area</option>
-            </select>
-          </div>
-  
-          <div class="col-md-4 mb-2">
-            <label class="form-label">Shared</label>
-            <select class="form-select" formControlName="isShared">
-              <option [ngValue]="true">Yes</option>
-              <option [ngValue]="false">No</option>
-            </select>
-          </div>
-  
-          <div class="col-md-4 mb-2">
-            <label class="form-label">Notes</label>
-            <input type="text" class="form-control" formControlName="notes" />
-          </div>
-  
-          <div class="col-12 text-end">
-            <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeComponent(i)">Remove</button>
-          </div>
+
+    <!-- Area (Sqft) -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Area (Sqft)</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="areaSqft"
+        required
+      />
+    </div>
+
+    <!-- Status -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" formControlName="status">
+        <option value="VACANT">Vacant</option>
+        <option value="OCCUPIED">Occupied</option>
+        <option value="UNDER_MAINTENANCE">Under Maintenance</option>
+      </select>
+    </div>
+
+    <!-- Unit Category -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Unit Category</label>
+      <select class="form-select" formControlName="unitCategory">
+        <option value="RESIDENTIAL">Residential</option>
+        <option value="COMMERCIAL">Commercial</option>
+        <option value="MIXED_USE">Mixed Use</option>
+      </select>
+    </div>
+
+    <!-- Unit Type -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Unit Type</label>
+      <select class="form-select" formControlName="unitType">
+        <option value="FLAT">Flat</option>
+        <option value="PG">PG</option>
+        <option value="ROOM">Room</option>
+        <option value="SHOP">Shop</option>
+        <option value="STUDIO">Studio</option>
+        <option value="WAREHOUSE">Warehouse</option>
+      </select>
+    </div>
+
+    <!-- Property ID (Hidden or Dropdown if needed) -->
+    <input type="hidden" formControlName="propertyId" />
+  </div>
+
+  <!-- Unit Components Section -->
+  <div formArrayName="components" class="mt-4">
+    <h5>Components</h5>
+    <div
+      *ngFor="let component of components.controls; let i = index"
+      [formGroupName]="i"
+      class="border rounded p-3 mb-3"
+    >
+      <div class="row">
+        <div class="col-md-4 mb-2">
+          <label class="form-label">Component Type</label>
+          <select class="form-select" formControlName="componentType">
+            <option value="BEDROOM">Bedroom</option>
+            <option value="BATHROOM">Bathroom</option>
+            <option value="HALL">Hall</option>
+            <option value="KITCHEN">Kitchen</option>
+            <option value="BALCONY">Balcony</option>
+            <option value="TOILET">Toilet</option>
+            <option value="SHARED_TOILET">Shared Toilet</option>
+            <option value="SHOWROOM_AREA">Showroom Area</option>
+            <option value="STORAGE_AREA">Storage Area</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-2">
+          <label class="form-label">Shared</label>
+          <select class="form-select" formControlName="isShared">
+            <option [ngValue]="true">Yes</option>
+            <option [ngValue]="false">No</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-2">
+          <label class="form-label">Notes</label>
+          <input type="text" class="form-control" formControlName="notes" />
+        </div>
+
+        <div class="col-12 text-end">
+          <button
+            class="btn btn-outline-danger btn-sm"
+            type="button"
+            (click)="removeComponent(i)"
+          >
+            Remove
+          </button>
         </div>
       </div>
-  
-      <div class="text-start">
-        <button type="button" class="btn btn-outline-primary" (click)="addComponent()">+ Add Component</button>
-      </div>
     </div>
-  
-    <!-- Submit -->
-    <div class="mt-4 text-end">
-      <button class="btn btn-success" type="submit" [disabled]="unitForm.invalid">Save Unit</button>
+
+    <div class="text-start">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="addComponent()"
+      >
+        + Add Component
+      </button>
     </div>
-  </form>
-  
+  </div>
+
+  <!-- Submit -->
+  <div class="mt-4 text-end">
+    <button class="btn btn-success" type="submit" [disabled]="unitForm.invalid">
+      Save Unit
+    </button>
+  </div>
+</form>
+
+<!-- <app-generic-form
+  [title]="'Unit Registration'"
+  [fields]="unitFormFields"
+  (formSubmit)="handleUnitSubmit($event)"
+></app-generic-form> -->

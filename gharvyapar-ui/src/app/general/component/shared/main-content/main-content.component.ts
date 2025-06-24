@@ -3,7 +3,7 @@ import { CenterSectionComponent } from '../center-section/center-section.compone
 import { LeftSectionComponent } from '../left-section/left-section.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { BreadcrumbComponent } from "../../breadcrumb/breadcrumb.component";
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-main-content',
@@ -12,8 +12,8 @@ import { BreadcrumbComponent } from "../../breadcrumb/breadcrumb.component";
     LeftSectionComponent,
     NavbarComponent,
     CommonModule,
-    BreadcrumbComponent
-],
+    BreadcrumbComponent,
+  ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css',
 })

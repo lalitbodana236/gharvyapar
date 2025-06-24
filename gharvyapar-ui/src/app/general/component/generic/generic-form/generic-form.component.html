@@ -1,0 +1,39 @@
+<div class="form-container">
+  <h2 class="form-title">{{ title }}</h2>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div *ngFor="let field of fields" class="form-group">
+      <label [for]="field.name">{{ field.label }}</label>
+
+      <input
+        *ngIf="field.type === 'text' || field.type === 'number'"
+        [type]="field.type"
+        [id]="field.name"
+        [formControlName]="field.name"
+        [placeholder]="field.placeholder"
+        class="form-control"
+      />
+
+      <select
+        *ngIf="field.type === 'select'"
+        [id]="field.name"
+        [formControlName]="field.name"
+        class="form-control"
+      >
+        <option *ngFor="let option of field.options" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="
+          form.controls[field.name].invalid && form.controls[field.name].touched
+        "
+        class="text-danger"
+      >
+        {{ field.label }} is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

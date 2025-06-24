@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { PropertyService } from '../../../service/property.service';
 import { BreadcrumbService } from '../../../service/breadcrumb.service';
+import { GenericFormComponent } from '../../generic/generic-form/generic-form.component';
 
 @Component({
   selector: 'app-add-unit',
@@ -92,5 +93,83 @@ export class AddUnitComponent {
         console.error('❌ Error adding property:', err);
       },
     });
+  }
+  unitFormFields = [
+    {
+      type: 'text',
+      name: 'unitNumber',
+      label: 'Unit Number',
+      required: true,
+    },
+    {
+      type: 'number',
+      name: 'areaSqft',
+      label: 'Area (Sqft)',
+      required: true,
+    },
+    {
+      type: 'select',
+      name: 'status',
+      label: 'Status',
+      options: ['VACANT', 'OCCUPIED', 'UNDER_MAINTENANCE'],
+    },
+    {
+      type: 'select',
+      name: 'unitCategory',
+      label: 'Unit Category',
+      options: ['RESIDENTIAL', 'COMMERCIAL', 'MIXED_USE'],
+    },
+    {
+      type: 'select',
+      name: 'unitType',
+      label: 'Unit Type',
+      options: ['FLAT', 'PG', 'ROOM', 'SHOP', 'STUDIO', 'WAREHOUSE'],
+    },
+    {
+      type: 'hidden',
+      name: 'propertyId',
+    },
+    {
+      type: 'array',
+      name: 'components',
+      label: 'Components',
+      fields: [
+        {
+          type: 'select',
+          name: 'componentType',
+          label: 'Component Type',
+          options: [
+            'BEDROOM',
+            'BATHROOM',
+            'HALL',
+            'KITCHEN',
+            'BALCONY',
+            'TOILET',
+            'SHARED_TOILET',
+            'SHOWROOM_AREA',
+            'STORAGE_AREA',
+          ],
+        },
+        {
+          type: 'select',
+          name: 'isShared',
+          label: 'Shared',
+          options: [
+            { value: true, label: 'Yes' },
+            { value: false, label: 'No' },
+          ],
+        },
+        {
+          type: 'text',
+          name: 'notes',
+          label: 'Notes',
+        },
+      ],
+    },
+  ];
+
+  handleUnitSubmit(formData: any) {
+    console.log('Unit Data Submitted:', formData);
+    // Submit logic here (API call, etc.)
   }
 }

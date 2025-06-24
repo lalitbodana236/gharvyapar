@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BreadcrumbService } from '../../service/breadcrumb.service';
 import { CommonModule, TitleCasePipe } from '@angular/common';
+import { BreadcrumbService } from '../../../service/breadcrumb.service';
 
 @Component({
   selector: 'app-breadcrumb',

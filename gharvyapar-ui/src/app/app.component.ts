@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { MainContentComponent } from './general/component/content/main-content/main-content.component';
-import { BreadcrumbComponent } from './general/component/breadcrumb/breadcrumb.component';
+import { MainContentComponent } from './general/component/shared/main-content/main-content.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, MainContentComponent, BreadcrumbComponent],
+  imports: [ReactiveFormsModule, MainContentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
