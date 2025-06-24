@@ -1,0 +1,134 @@
+📋 GharVyapar – Engineering Backlog for Sprint Planning
+🔱 [Epic 1] Platform Foundation & DevOps
+🔹 Feature: Repository & DevOps Setup
+🟩 Story: Initialize mono-repo with modular structure
+
+🟩 Story: Dockerize all services (API Gateway, Auth, etc.)
+
+🟩 Story: CI/CD pipelines (GitHub Actions / GitLab CI)
+
+🟩 Story: Infrastructure as Code (Terraform/K8s base)
+
+🔐 [Epic 2] Authentication & Authorization
+🔹 Feature: JWT-Based Login & RBAC
+🟩 Story: Implement /register, /login endpoints
+
+🟩 Story: Generate & validate JWT tokens
+
+🟩 Story: Middleware for role-based access control
+
+🟩 Story: Secure endpoints with Spring Security / NestJS guards
+
+👤 [Epic 3] User Management Service
+🔹 Feature: Owner and Tenant Profiles
+🟩 Story: Create user entity (role: OWNER/TENANT)
+
+🟩 Story: Add endpoints to fetch/update profile
+
+🟩 Story: Link users with units (many-to-many or unit assignment logic)
+
+🏠 [Epic 4] Property & Unit Management
+🔹 Feature: CRUD for Properties and Units
+🟩 Story: Create property with address, metadata
+
+🟩 Story: Add/remove/edit units under a property
+
+🟩 Story: Assign tenant to a unit
+
+🟩 Story: Implement filtering (vacant/occupied), pagination
+
+💳 [Epic 5] Rent & Utility Payments
+🔹 Feature: Rent Collection & Tracking
+🟩 Story: Setup payment entity (type: rent, utility)
+
+🟩 Story: Record manual payment (offline)
+
+🟩 Story: Integrate payment gateway (Razorpay/Stripe)
+
+🟩 Story: Generate monthly rent due for tenants
+
+🟩 Story: Generate and email PDF receipts
+
+📹 [Epic 6] AI-Based Inspections
+🔹 Feature: Move-In/Move-Out Inspections
+🟩 Story: Upload video via frontend
+
+🟩 Story: Store videos in MongoDB or AWS S3
+
+🟩 Story: Integrate AI service (placeholder for now)
+
+🟩 Story: Compare videos (generate damage report – dummy initially)
+
+📁 [Epic 7] Document Management & KYC
+🔹 Feature: Document Upload & Verification
+🟩 Story: Upload PAN/Aadhaar with type classification
+
+🟩 Story: Store metadata + actual file in S3/MongoDB
+
+🟩 Story: Manual KYC approval (admin endpoint)
+
+🔔 [Epic 8] Notifications & Alerts
+🔹 Feature: Multi-channel Notifications
+🟩 Story: Integrate SendGrid (Email), Twilio (SMS), WhatsApp API
+
+🟩 Story: Trigger notifications for:
+
+Rent due reminders
+
+KYC approval
+
+Move-in/move-out confirmation
+
+Lease expiry
+
+🟩 Story: Add notification preferences per user
+
+🌐 [Epic 9] Frontend – Tenant Portal & Owner Dashboard
+🔹 Feature: Tenant Portal
+🟩 Story: Dashboard showing unit, payment due, documents
+
+🟩 Story: Upload documents/videos
+
+🟩 Story: Pay rent online
+
+🔹 Feature: Owner Dashboard
+🟩 Story: Add/view/edit property/unit
+
+🟩 Story: Assign tenants
+
+🟩 Story: View rent received, document status
+
+🧪 [Epic 10] QA, Testing & Observability
+🔹 Feature: System Observability
+🟩 Story: Add logging (ELK stack or Logback)
+
+🟩 Story: Basic metrics for request tracking (Prometheus/Grafana)
+
+🟩 Story: Unit and integration tests for each service
+
+🟩 Story: End-to-end tests for core workflows
+
+🛣️ Sprint Template (Sample)
+Sprint	Duration	Goals
+Sprint 1	1 Week	Repo structure, Auth-service (basic), DevOps setup
+Sprint 2	1 Week	User-service, Property-service (basic CRUD)
+Sprint 3	1 Week	Payments (manual), frontend scaffolding
+Sprint 4	1 Week	Document uploads, Notifications setup
+Sprint 5	1 Week	Video upload + mock AI inspection
+Sprint 6	1 Week	Role-based dashboards, mobile responsiveness
+Sprint 7	1 Week	End-to-end testing, deployment to staging
+
+✅ Suggested Labels (For Jira/GitHub Projects)
+epic:auth
+
+service:property
+
+type:backend
+
+type:frontend
+
+priority:high
+
+milestone:MVP
+
+blocked, ready-for-review, in-progress, done
